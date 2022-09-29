@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<title>Test HTTP server</title>
+	</head>
+	<body>
+		Test HTTP server works!
+		<div></div>
+		<button id="btn1">click me</button>
+	</body>
+	<script>
+		let div = document.querySelector('div');
+		let i = 0;
+		let arr = ["/ajax.html", "/p2.html", "/p3.html", "/p4.html", "/p5.html"];
+			btn1.addEventListener('click', function() {
+				let path = arr[i];
+				fetch(path).then(
+			response => {
+				return response.text();
+				}
+				).then(
+					text => {
+						div.innerHTML = text;
+				}
+					);
+					i++;
+					if (i > 4){i=0}
+					});
+	</script>
+</html>
